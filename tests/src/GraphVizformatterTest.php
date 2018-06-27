@@ -5,13 +5,13 @@ namespace Bigwhoop\PhpClassComponentsExtractor\Tests;
 
 use Bigwhoop\PhpClassComponentsExtractor\Extractor;
 use Bigwhoop\PhpClassComponentsExtractor\File;
-use Bigwhoop\PhpClassComponentsExtractor\GraphVizFormatter;
+use Bigwhoop\PhpClassComponentsExtractor\GraphvizFormatter;
 use PHPUnit\Framework\TestCase;
 
-final class GraphVizFormatterTest extends TestCase
+final class GraphVizformatterTest extends TestCase
 {
     /** @test */
-    public function i_can_get_components_of_a_single_class(): void
+    public function i_can_get_output_in_graphviz_graph_definition_language(): void
     {
         $extractor = new Extractor();
         $graph = $extractor->extract(new File(__DIR__ . '/../res/One.php'));
@@ -61,6 +61,6 @@ digraph {
 }
 TXT;
         
-        $this->assertSame($expected, (new GraphVizFormatter())->format($graph));
+        $this->assertSame($expected, (new GraphvizFormatter())->format($graph));
     }
 }

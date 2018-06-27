@@ -7,7 +7,7 @@ use Bigwhoop\PhpClassComponentsExtractor\Graph\Graph;
 use Bigwhoop\PhpClassComponentsExtractor\Graph\MethodRef;
 use Bigwhoop\PhpClassComponentsExtractor\Graph\PropertyRef;
 
-final class GraphVizFormatter
+final class GraphvizFormatter
 {
     public function format(Graph $graph): string
     {
@@ -39,9 +39,11 @@ final class GraphVizFormatter
         
         foreach ($graph->getMethods() as $method) {
             $methodRef = new MethodRef($method);
+            $calls = [];
             foreach ($graph->getRefsForMethod($method) as $ref) {
-                $s .= "    \"{$methodRef->toString()}\" -> \"{$ref->toString()}\"\n";
+                $calls[] = "    \"{$methodRef->toString()}\" -> \"{$ref->toString()}\"\n";
             }
+            $s .= join('', array_unique($calls));
         }
         
         $s .= "}\n";

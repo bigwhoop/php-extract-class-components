@@ -1,0 +1,39 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+namespace App;
+
+use Bigwhoop\PhpClassComponentsExtractor\Extractor;
+use Bigwhoop\PhpClassComponentsExtractor\File;
+use Bigwhoop\PhpClassComponentsExtractor\GraphvizFormatter;
+
+$autoloadFilePaths = [
+    __DIR__.'/../vendor/autoload.php',
+    __DIR__.'/../../../autoload.php'
+];
+
+$autoloadFilePath = false;
+foreach ($autoloadFilePaths as $path) {
+    if (file_exists($path)) {
+        $autoloadFilePath = $path;
+        break;
+    }
+}
+
+if (!$autoloadFilePath) {
+    echo "Failed to locate composer's autoload.php.\n";
+    exit(1);
+}
+
+require $autoloadFilePath;
+
+if (!isset($argv[1])) {
+    exit("USAGE: class-components-extractor FILE\n");
+}
+
+$extractor = new Extractor();
+$graph = $extractor->extract(new File($argv[1]));
+
+$formatter = new GraphvizFormatter();
+echo $formatter->format($graph);
