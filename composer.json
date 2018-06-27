@@ -1,0 +1,21 @@
+{
+  "name": "bigwhoop/php-class-components-extractor",
+  "authors": [
+    {
+      "name": "Philippe Gerber",
+      "email": "philippe@bigwhoop.ch"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "nikic/php-parser": "^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bigwhoop\\PhpClassComponentsExtractor\\": "src/"
+    }
+  }
+}
