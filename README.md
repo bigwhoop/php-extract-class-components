@@ -29,7 +29,7 @@ class Example
 
 ## Installation
 
-    composer require bigwhoop/php-class-components-extractor
+    composer require bigwhoop/php-extract-class-components
     
 ## Use
 
