@@ -1,5 +1,6 @@
 {
   "name": "bigwhoop/php-extract-class-components",
+  "license": "MIT",
   "authors": [
     {
       "name": "Philippe Gerber",
