@@ -41,12 +41,12 @@ final class NodeVisitor extends NodeVisitorAbstract
             return null;
         }
         
-        if ($node instanceof Node\Expr\PropertyFetch && $node->var->name === 'this') {
-            $this->graph->addPropertyFetch($this->lastMethod, $node->name->toString());
+        if ($node instanceof Node\Expr\PropertyFetch && $node->var instanceof Node\Expr\Variable && $node->var->name === 'this') {
+            $this->graph->addPropertyFetch($this->lastMethod, $node->name->name);
         }
         
-        if ($node instanceof Node\Expr\MethodCall && $node->var->name === 'this') {
-            $this->graph->addMethodCall($this->lastMethod, $node->name->toString());
+        if ($node instanceof Node\Expr\MethodCall && $node->var instanceof Node\Expr\Variable && $node->var->name === 'this') {
+            $this->graph->addMethodCall($this->lastMethod, $node->name->name);
         }
         
         return null;

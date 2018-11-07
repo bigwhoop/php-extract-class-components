@@ -5,7 +5,7 @@ namespace Bigwhoop\PhpClassComponentsExtractor\Tests;
 
 use Bigwhoop\PhpClassComponentsExtractor\Extractor;
 use Bigwhoop\PhpClassComponentsExtractor\File;
-use Bigwhoop\PhpClassComponentsExtractor\TextFormatter;
+use Bigwhoop\PhpClassComponentsExtractor\Formatting\TextFormatter;
 use PHPUnit\Framework\TestCase;
 
 final class TextFormatterTest extends TestCase

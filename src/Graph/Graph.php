@@ -24,7 +24,6 @@ final class Graph
     
     public function addPropertyFetch(string $caller, string $property): void
     {
-        $this->addMethod($caller);
         $this->addProperty($property);
         $this->methods[$caller][] = new PropertyRef($property);
     }
@@ -32,7 +31,6 @@ final class Graph
     public function addMethodCall(string $caller, string $callee): void
     {
         $this->addMethod($caller);
-        $this->addMethod($callee);
         $this->methods[$caller][] = new MethodRef($callee);
     }
 

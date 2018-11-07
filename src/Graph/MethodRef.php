@@ -6,17 +6,17 @@ namespace Bigwhoop\PhpClassComponentsExtractor\Graph;
 final class MethodRef implements Reference
 {
     /** @var string */
-    private $method;
+    private $name;
 
-    public function __construct(string $method)
+    public function __construct(string $name)
     {
-        $this->method = $method;
+        $this->name = $name;
     }
     
     public function resolveToPropertyNames(Graph $graph): array
     {
         $props = [];
-        foreach ($graph->getRefsForMethod($this->method) as $refOfThisMethod) {
+        foreach ($graph->getRefsForMethod($this->name) as $refOfThisMethod) {
             foreach ($refOfThisMethod->resolveToPropertyNames($graph) as $prop) {
                 $props[$prop] = $prop;
             }
@@ -27,6 +27,11 @@ final class MethodRef implements Reference
     
     public function toString(): string
     {
-        return $this->method . '()';
+        return $this->name . '()';
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }

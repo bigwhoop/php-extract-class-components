@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Bigwhoop\PhpClassComponentsExtractor;
+namespace Bigwhoop\PhpClassComponentsExtractor\Formatting;
 
 use Bigwhoop\PhpClassComponentsExtractor\Graph\Graph;
 

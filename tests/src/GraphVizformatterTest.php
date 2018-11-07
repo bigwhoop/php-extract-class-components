@@ -5,7 +5,7 @@ namespace Bigwhoop\PhpClassComponentsExtractor\Tests;
 
 use Bigwhoop\PhpClassComponentsExtractor\Extractor;
 use Bigwhoop\PhpClassComponentsExtractor\File;
-use Bigwhoop\PhpClassComponentsExtractor\GraphvizFormatter;
+use Bigwhoop\PhpClassComponentsExtractor\Formatting\GraphvizFormatter;
 use PHPUnit\Framework\TestCase;
 
 final class GraphVizformatterTest extends TestCase

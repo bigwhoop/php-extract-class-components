@@ -6,7 +6,7 @@ namespace App;
 
 use Bigwhoop\PhpClassComponentsExtractor\Extractor;
 use Bigwhoop\PhpClassComponentsExtractor\File;
-use Bigwhoop\PhpClassComponentsExtractor\GraphvizFormatter;
+use Bigwhoop\PhpClassComponentsExtractor\Formatting\GraphvizFormatter;
 
 $autoloadFilePaths = [
     __DIR__.'/../vendor/autoload.php',

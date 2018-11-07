@@ -2,6 +2,31 @@
 
 This little tool helps you visualize the cohesion of a class by showing the relationship between its methods and properties. It helps you following the SRP (Single Responsiblity Principle) by showing you how a class could be split up.
 
+```php
+class Example
+{
+    private $a;
+    private $b;
+    private $c;
+    
+    public function a(): void
+    {
+        $this->a;
+    }
+    
+    public function ab(): void
+    {
+        $this->a;
+        $this->b;
+    }
+    
+    public function c(): void
+    {}
+}
+```
+
+![Example](/screenshot.png?raw=true "Example")
+
 ## Installation
 
     composer require bigwhoop/php-class-components-extractor

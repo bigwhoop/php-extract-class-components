@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Bigwhoop\PhpClassComponentsExtractor;
+namespace Bigwhoop\PhpClassComponentsExtractor\Formatting;
 
 use Bigwhoop\PhpClassComponentsExtractor\Graph\Graph;
 use Bigwhoop\PhpClassComponentsExtractor\Graph\MethodRef;
@@ -37,10 +37,16 @@ final class GraphvizFormatter
             $s .= "\n";
         }
         
-        foreach ($graph->getMethods() as $method) {
+        $methods = $graph->getMethods();
+        
+        foreach ($methods as $method) {
             $methodRef = new MethodRef($method);
             $calls = [];
             foreach ($graph->getRefsForMethod($method) as $ref) {
+                if ($ref instanceof MethodRef && !\in_array($ref->getName(), $methods, true)) {
+                    continue; // ignore methods not found directly on the class. e.g. methods from traits or base classes
+                }
+                
                 $calls[] = "    \"{$methodRef->toString()}\" -> \"{$ref->toString()}\"\n";
             }
             $s .= join('', array_unique($calls));
